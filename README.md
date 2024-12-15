@@ -146,7 +146,7 @@ Após clonar ou baixar o projeto, siga as etapas a seguir:
 
 2. **Instale as dependências**
    ```
-    "pip install -r back_end/requirements.txt"
+    "pip install -r requirements.txt"
    ```
 
 3. **Defina a variável de ambiente FLASK_APP**
