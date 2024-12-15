@@ -1,0 +1,117 @@
+
+/* 
+.section-main table tr {
+    border: 1px solid red;
+    margin: 10px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+main .section-main {
+    padding: 25px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-return {
+    height: auto;
+    width: 100%;
+    
+    position: relative;
+}
+.bi-arrow-left {
+    font-size: 20px;
+    font-weight: 600;
+
+    cursor: pointer;
+    position: absolute;
+    transform: translate(14px, -10px);
+}
+.bi-arrow-left:hover {
+    position: absolute;
+    transform: translate(10px, -10px);
+    transition: transform 0.4s ease;
+}
+
+main .section-main .div-userdados {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+main .section-main .div-userdados .div-dados {
+    height: 100%;
+    width: auto;
+
+    display: flex;
+    justify-content: center;
+
+    overflow: auto;
+}
+main .section-main .div-userdados .div-dados table {
+    border: 1px solid var(--cor61);
+    width: 100%;
+
+    table-layout: auto;
+    border-collapse: collapse;
+}
+main .section-main .div-userdados .div-dados table th {
+    background-color: var(--cor65);
+    border: 1px solid var(--cor61);
+    font-size: clamp(14px, 2.5vw, 15px);
+    padding: 0 7px;
+    font-weight: 400;
+}
+main .section-main .div-userdados .div-dados table td {
+    border: 1px solid var(--cor61);
+    font-size: clamp(12px, 2.5vw, 13px);
+    padding: 2px 6px;
+}
+
+
+
+main .section-main .div-dadosmesa {
+    border-bottom: 1px solid var(--cor61);
+    width: 90%;
+    height: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main .section-main .div-dadosmesa .div-mesa {
+    height: 100%;
+    width: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: auto;
+}
+main .section-main .div-dadosmesa .div-mesa table {
+    border: 1px solid var(--cor61);
+    height: 20%;
+    width: 100%;
+
+    table-layout: auto;
+    border-collapse: collapse;
+}
+main .section-main .div-dadosmesa .div-mesa table th {
+    background-color: var(--cor65);
+    border: 1px solid var(--cor61);
+    font-size: clamp(14px, 2.5vw, 15px);
+    padding: 4px 7px;
+    font-weight: 400;
+}
+main .section-main .div-dadosmesa .div-mesa table td {
+    border: 1px solid var(--cor61);
+    font-size: clamp(12px, 2.5vw, 13px);
+    padding: 6px 12px;
+}

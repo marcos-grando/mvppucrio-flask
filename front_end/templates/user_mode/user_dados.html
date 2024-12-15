@@ -1,0 +1,92 @@
+
+{% block arquivos_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/pags/pag_user/pag_user_dados.css') }}">
+{% endblock %}
+
+<section class="section-text">
+    <div class="div-text">
+    {% block detalhes_situacao %}
+        {% if user_situacao == 'Aceito' %}
+        <h3>Bem-vindo(a) {{ user_nome }}</h3>
+        <p>Veja seus dados abaixo e confirme sua presença. <br> Te aguardamos na realização do nosso sonho!</p>
+
+        {% elif user_situacao == 'Pendente' %}
+        <h3>Bem-vindo(a) {{ user_nome }}</h3>
+        <p>Ah que pena, você ainda não aceitou nosso convite? <br> Te aguardamos na realização do nosso sonho!</p>
+
+        {% elif user_situacao == 'Recusado' %}
+        <h3>Bem-vindo(a) {{ user_nome }}</h3>
+        <p>Poxa, você recusou nosso convite! <br> Queríamos muito sua presença, é uma pena...</p>
+
+        {% else %}
+        <h3>Ocorreu algum problema!</h3>
+        <p>O sistema não conseguiu acessar todos os dados. Por favor, entre em contato com nosso suporte ou volte mais tarde.</p>
+        {% endif %}
+    {% endblock %}
+    </div>
+</section>
+
+<section class="section-dados">
+
+    <section class="section-detalhes-user">
+    <h3 class="h3-dados">Dados Pessoais:</h3>
+    <div class="div-dados">
+            <h3>Nome:</h3>
+            <p>{{ user_nome }}</p>
+    </div>
+    <div class="div-dados">
+            <h3>Nº do convite:</h3>
+            <p>Convite nº {{ user_id }}</p>
+    </div>
+    <div class="div-dados">
+            <h3>Presença como:</h3>
+            <p>{{ user_designacao }}</p>
+    </div>
+    <div class="div-dados">
+            <h3>Sua mesa:</h3>
+            <p>{{ user_mesa }}</p>
+    </div>
+    <div class="div-dados">
+            <h3>Confirmação:</h3>
+            <p>{{ user_situacao }}</p>
+    </div>
+    </section>
+
+    <section class="section-confirmar">
+        <div class="div-confirmar">
+            {% if user_situacao == 'Aceito' %}
+            <h3>Presença confirmada! <i class="bi bi-emoji-smile"></i></h3>
+
+            {% elif user_situacao == 'Pendente' %}
+            <h3>Convite pendente!</h3>
+            <form action="/user_situacao" onsubmit="chama_load_section(event)" method="POST">
+
+                <input type="radio" name="user_situacao" id="id-aceito" value="Aceito" checked>
+                <label for="id-aceito">Confirmar presença</label><br>
+
+                <input type="radio" name="user_situacao" id="id-recusado" value="Recusado">
+                <label for="id-recusado">Recusar convite</label><br>
+
+                <input class="button" id="button-situacao" type="submit" value="Enviar">
+                
+            </form>
+
+            {% elif user_situacao == 'Recusado' %}
+            <h3>Convite recusado. <i class="bi bi-emoji-frown"></i></h3>
+
+            {% else %}
+            <h3>Dados não encontrados..</h3>
+
+            {% endif %}
+        </div>
+    </section>
+
+</section>
+
+<section class="section-text">
+    <div class="div-text2">
+    <h3>Alguma dúvida?</h3>
+    <p>Entre em contato com nossa equipe:</p>
+    <p>suporte@example.com | (99) 99999-9999</p>
+        </div>
+</section>

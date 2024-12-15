@@ -1,0 +1,71 @@
+
+.form-div .login-div form .entrar-div {
+    width: 96%; 
+    height: 36px;
+    margin: 5px 0;
+    padding: 2px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-div .login-div form .entrar-div .login-entrar {
+    background-color: var(--cor5);
+    border-radius: 7px;
+    height: auto;
+    width: 30%;
+    padding: 4.5px;
+    margin-left: 4px;
+
+    color: var(--cor4);
+    font-size: 15px;
+
+    cursor: pointer;
+    font-variant: small-caps;
+}
+.form-div .login-div form .entrar-div .login-entrar:hover {
+    color: var(--cor6);
+    font-weight: 500;
+}
+
+.form-div .login-div form .entrar-div .numid-div {
+    background-color: var(--cor5);
+    border-radius: 9px;
+    color: var(--cor4);
+    width: 70%; 
+    height: 36px;
+    padding: 2px;
+    margin: 6px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-div .login-div form .entrar-div .numid-div .login-dados {
+    background-image: linear-gradient(225deg, var(--cor4) 0%, var(--cor65) 35%);
+    font-family: 'Work Sans', 'Elaine Sans', sans-serif;
+    color: var(--cor1);
+
+    outline: none; /* retira a bordinha quando a caixa é selecionada*/
+
+    width: 100%; height: 100%;
+    margin: 0; padding: 5px;
+    border-radius: 7px;
+    border: none;
+}
+.form-div .login-div form .entrar-div .numid-div .bi {
+    color: var(--cor4);
+    width: 32px; height: 100%;
+    margin-right: 4px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form-div .login-div form .entrar-div .numid-div:focus-within {
+    background-color: var(--cor63); 
+}
+

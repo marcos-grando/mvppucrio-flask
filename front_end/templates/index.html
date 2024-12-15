@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+    {% block arquivos_css %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='estilos/login/login.css') }}">
+    {% endblock %}
+
+    {% block conteudo %}
+
+    <main>
+
+        <section class="login-section">
+            <div class="img-div">
+            </div>
+
+            <div class="form-div">
+
+                <div class="autoridade">
+                    <div class="modo convidado modo-select" id="user" onclick="autoridade('user')">
+                        <p>Convidado(a)</p>
+                    </div>
+                    <div class="modo organizador" id="adm" onclick="autoridade('adm')">
+                        <p>Organizador(a)</p>
+                    </div>
+                </div>
+
+                <div class="login-div">
+                    {% block conteudo_login %}
+
+                    {% endblock %}
+                </div>
+                
+            </div>
+        </section>
+
+        <div class="footer">
+            <h3>Desenvolvido por Marcos Grando</h3>
+        </div>
+    </main>
+
+    {% endblock %}
+    
+    {% block extra_js %}
+        <script src="{{ url_for('static', filename='scriptsjs/login.js') }}"></script>
+        <script src="{{ url_for('static', filename='scriptsjs/cadastro.js') }}"></script> 
+    {% endblock %}

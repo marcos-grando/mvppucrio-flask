@@ -1,0 +1,72 @@
+
+main .section-main .section-user .section-dados {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main .section-main .section-user .section-dados .section-detalhes-user,
+main .section-main .section-user .section-dados .section-confirmar {
+    background-color: var(--cor2);
+    border: 1px solid var(--cor61);
+    width: 100%;
+}
+main .section-main .section-user .section-dados .section-confirmar {
+    margin: 10px 0 0 0;
+}
+main .section-main .section-user .section-dados .section-detalhes-user .h3-dados {
+    font-size: clamp(15px, 2.4vw, 18px);
+    font-weight: 500;
+    margin: 8px;
+}
+main .section-main .section-user .section-dados .section-detalhes-user .div-dados,
+main .section-main .section-user .section-dados .section-confirmar .div-confirmar {
+    background-color: white;
+    border: 1px solid var(--cor61);
+    border-radius: 3px;
+
+    padding: 6px 12px;
+    margin: 4px;
+}
+main .section-main .section-user .section-dados .section-detalhes-user .div-dados h3 {
+    color: var(--cor5);
+    font-size: clamp(14px, 2.4vw, 17px);
+    /* font-size: 14px; */
+    font-weight: 400;
+    margin: 0 0 4px -2px;
+}
+main .section-main .section-user .section-dados .section-detalhes-user .div-dados p {
+    font-size: clamp(17px, 2.8vw, 21px);
+    font-weight: 400;
+}
+
+main .section-main .section-user .section-dados .section-confirmar .div-confirmar {
+    text-align: center;
+    padding-top: 9px;
+}
+main .section-main .section-user .section-dados .section-confirmar .div-confirmar h3 {
+    text-align: center;
+    color: var(--cor3);
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 4px -2px;
+}
+main .section-main .section-user .section-dados .section-confirmar .div-confirmar .bi-emoji-frown {
+    color: rgb(190, 19, 19);
+}
+main .section-main .section-user .section-dados .section-confirmar .div-confirmar .bi-emoji-smile {
+    color: green;
+}
+main .section-main .section-user .section-dados .section-confirmar .div-confirmar input {
+    margin: 4px 0;
+}
+main .section-main .section-user .section-dados .section-confirmar .div-confirmar .button {
+    background-color: var(--cor5);
+    border: none;
+    border-radius: 3px;
+    color: var(--cor2);
+    padding: 7px 32px;
+}

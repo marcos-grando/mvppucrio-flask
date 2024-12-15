@@ -1,0 +1,58 @@
+    
+    {% block arquivos_css %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='estilos/cadastro/cadastro.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='estilos/cadastro/cadastro_user.css') }}">
+    {% endblock %}
+
+        <div class="div-bi-exit" onclick="autoridade('user')">
+            <i class="bi-exit bi-box-arrow-left"></i>
+        </div>
+        <div class="div-cadastro">
+            <form class="form-cadastro" action="/novo_cadastro" method="PUT" autocomplete="off" onsubmit="novo_cadastro(event, 'cadastro_user')">
+                <div class="form-grid">
+                    <div class="profile-div user-id">
+                        <label for="cadastro-id">Nº do convite:</label>
+                        <input id="cadastro-id" class="cadastro-dados" type="number" name="id" required>
+                    </div>
+                    <div class="profile-div user-bi">
+                        <i class="bi bi-search" onclick="cadastro_valida_id('cadastro_user')"></i>
+                    </div>
+                    <div class="profile-div user-desig">
+                        <label for="cadastro-designacao">Presença como:</label>
+                        <input id="cadastro-designacao" class="cadastro-dados" type="text" name="designacao" value="" readonly>
+                    </div>
+                    <div class="profile-div user-mesa">
+                        <label for="cadastro-mesa">Mesa:</label>
+                        <input id="cadastro-mesa" class="cadastro-dados" type="text" name="mesa" value="" readonly>
+                    </div>
+                    <div class="profile-div user-nome">
+                        <label for="cadastro-nome">Nome completo:</label>
+                        <input id="cadastro-nome" class="cadastro-dados" type="text" name="nome" value="" readonly>
+                    </div>
+                    <div class="profile-div user-idade">
+                        <label for="cadastro-idade">Idade:</label>
+                        <input id="cadastro-idade" type="number" name="idadei">
+                    </div>
+                    <div class="profile-div user-contato">
+                        <label for="cadastro-contato">Contato:</label>
+                        <input id="cadastro-contato" class="cadastro-dados" type="tel" name="contato" oninput="formatarTelefone(this)" readonly required>
+                    </div>
+                    <div class="profile-div user-email">
+                        <label for="cadastro-email">Email:</label>
+                        <input id="cadastro-email" class="cadastro-dados" type="email" name="email" readonly required>
+                    </div>
+                    <div class="profile-div user-senha">
+                        <label for="cadastro-senha">Senha:</label>
+                        <input id="cadastro-senha" class="cadastro-dados" type="password" name="senha" minlength="1" readonly required>
+                    </div>
+                    <div class="profile-div user-submit">
+                        <input id="cadastro-submit" class="cad-submit" type="submit" value="Cadastrar-se">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    {% block extra_js %}
+        <script src="{{ url_for('static', filename='scriptsjs/logout.js') }}"></script>
+        <script src="{{ url_for('static', filename='scriptsjs/cadastro.js') }}"></script>
+    {% endblock %}

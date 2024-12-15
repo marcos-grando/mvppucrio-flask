@@ -1,0 +1,202 @@
+
+.bi-files, .bi-trash {
+    font-size: clamp(14px, 2.6vw, 15px);
+    cursor: pointer;
+}
+
+/* Definindo tamanho do TR */
+.div-lista table thead tr,
+.div-lista table tbody tr {
+    height: auto;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+/* Definindo tamanho dos filhos do TR */
+.div-lista table thead tr th,
+.div-lista table tbody tr td {
+    border: 1px solid var(--cor65);
+    /* border: 1px solid var(--cor5); */
+    height: 100%;
+
+    table-layout: fixed;
+    white-space: nowrap;
+}
+
+
+.div-lista table thead tr th {
+    background-color: var(--cor65);
+    text-align: left;
+    font-size: 14px;
+    padding: 8px 10px;
+}
+.div-lista table tbody tr td {
+    background-color: var(--cor2);
+    font-size: clamp(12px, 2.5vw, 14px);
+    padding: 5px 10px;
+}
+
+
+.div-lista table thead tr .th-id,
+.div-lista table tbody tr .td-id {
+    text-align: center;
+    width: 8%;
+}
+.div-lista table thead tr .th-nome,
+.div-lista table tbody tr .td-nome {
+    width: 40%;
+}
+.div-lista table thead tr .th-funcao,
+.div-lista table tbody tr .td-funcao {
+    width: 36%;
+}
+/* .div-lista table thead tr .th-email,
+.div-lista table tbody tr .td-email {
+    text-align: center;
+    width: 8%;
+
+    cursor: pointer;
+}
+.div-lista table thead tr .th-remover,
+.div-lista table tbody tr .td-remover {
+    text-align: center;
+    width: 8%;
+
+    cursor: pointer;
+} */
+
+/* .div-lista table thead tr .th-email,
+.div-lista table thead tr .th-remover {
+    text-align: center;
+    width: 8%;
+} */
+
+.div-lista table thead tr .th-bloco,
+.div-lista table tbody tr .td-bloco {
+    /* text-align: center; */
+    width: 16%;
+
+    display: flex;
+    flex-direction: row;
+}
+/* padding específico */
+.div-lista table thead tr .th-bloco {
+    padding: 7.8px 0;
+}
+.div-lista table tbody tr .td-bloco {
+    padding: 5px 0;
+}
+
+/* t HEAD  */
+.div-lista table thead tr .th-bloco .div-email,
+.div-lista table thead tr .th-bloco .div-remover {
+    width: 100%;
+
+    /* font-size: clamp(12px, 2.5vw, 14px); */
+    text-align: center;
+
+    cursor: pointer;
+}
+.div-lista table thead tr .th-bloco .div-remover {
+    border-left: 1px solid var(--cor61);
+}
+
+/* t BODY */
+.div-lista table tbody tr .td-bloco .div-email,
+.div-lista table tbody tr .td-bloco .div-remover {
+    background-color: var(--cor2);
+    width: 100%;
+
+    /* font-size: clamp(12px, 2.5vw, 14px); */
+    text-align: center;
+
+    cursor: pointer;
+}
+.div-lista table tbody tr .td-bloco .div-remover {
+    border-left: 1px solid var(--cor61);
+}
+
+
+.section-lista .div-add {
+    background-image: linear-gradient(180deg, var(--cor6) 0%, var(--cor66) 5%);
+    width: 100%;
+    
+    z-index: 1;
+    position: sticky;
+    transform: translateY(-28%);
+
+}
+.div-add .div-bloco-addnovo {
+    width: 99.9%;
+    padding: 6px 0 ;
+
+    font-size: clamp(12px, 2.5vw, 14px);
+    font-weight: 400;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    cursor: pointer;
+}
+.div-add .div-bloco-addnovo:hover {
+    background-image: linear-gradient(180deg, var(--cor6) 0%, var(--cor67) 5%);
+}
+.div-add .div-addnovo {
+    width: 8%;
+    font-size: 22px;
+    text-align: center;
+}
+.div-add .div-addnovo2 {
+    width: 92%;
+    text-align: left;
+    font-weight: 400;
+
+    display: flex;
+    align-items: center;
+}
+
+
+tfoot {
+    position: sticky;
+    bottom: -1px;
+    right: -0.5%;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+}
+tfoot .tr-addnovo {
+    background-image: linear-gradient(180deg, var(--cor6) 0%, var(--cor66) 5%);
+    width: 99.9%;
+    padding: 6px 0 ;
+
+    font-size: clamp(12px, 2.5vw, 14px);
+    font-weight: 400;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    cursor: pointer;
+}
+tfoot .tr-addnovo:hover {
+    background-image: linear-gradient(180deg, var(--cor6) 0%, var(--cor67) 5%);
+}
+tfoot .td-addnovo {
+    width: 8%;
+    font-size: 22px;
+    text-align: center;
+}
+tfoot .td-addnovo2 {
+    width: 92%;
+    text-align: left;
+    font-weight: 400;
+
+    display: flex;
+    align-items: center;
+}

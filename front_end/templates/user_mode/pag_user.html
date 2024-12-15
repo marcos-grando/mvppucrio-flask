@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+    {% block arquivos_css %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='estilos/pags/pags_opts.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='estilos/pags/pags_section_main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='estilos/pags/pag_user/pag_user.css') }}">
+    {% endblock %}
+
+    {% block conteudo %}
+
+    <header>
+        <i class="bi-exit bi-box-arrow-left"></i>
+        <nav>
+            <ul>
+                <div class="div-opts" id="id-dados" onclick="load_section_user('user_dados')">
+                    <li>
+                        <i class="bi-menu bi-person"></i>
+                        <p class="p-mobile">Dados Pessoais</p>
+                        <p class="p-pc">Dados</p>
+                    </li>
+                </div>
+                <div class="div-opts" id="id-sobre" onclick="load_section_user('user_sobre')">
+                    <li>
+                        <i class="bi-menu bi-arrow-through-heart"></i>
+                        <p class="p-mobile">Sobre Nós</p>
+                        <p class="p-pc">Sobre</p>
+                    </li>
+                </div>
+                <div class="div-opts" id="id-ajuda" onclick="load_section_user('user_local')">
+                    <li>
+                        <i class="bi-menu bi-geo-alt"></i>
+                        <p class="p-mobile">Localização</p>
+                        <p class="p-pc">Local</p>
+                    </li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-main">
+
+            <section class="section-titulo">
+                <div class="div-titulo">
+                    <h1>José & Maria</h1>
+                    <h2>Realizando um sonho</h2>
+                </div>
+            </section>
+    
+            <section class="section-user" id="section_user">
+                {% block section_user %}
+
+                {% endblock %}
+            </section>
+
+        </section>
+    </main>
+
+    {% endblock %}
+
+    {% block extra_js %}
+        <script src="{{ url_for('static', filename='scriptsjs/conteudos_user.js') }}"></script>
+        <script src="{{ url_for('static', filename='scriptsjs/logout.js') }}"></script> 
+    {% endblock %}
+    

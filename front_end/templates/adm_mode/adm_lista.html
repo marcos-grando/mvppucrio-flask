@@ -1,0 +1,114 @@
+
+{% block arquivos_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/pags/pag_adm/pag_adm_lista.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/pags/pag_adm/pag_adm_lista_tabela.css') }}">
+{% endblock %}
+
+<section class="section-textadm">
+    <div class="div-textadm">
+        <h3>Bem vindo(a) {{ adm_nome }}</h3>
+        <p>Veja abaixo a lista de convidados até o momento. </p>
+    </div>
+</section>
+
+<section class="section-lista">
+    <div class="div-lista">
+        <table>
+            <thead class="th-dados" id="dados-convidados">
+                <tr>
+                    <th class="th-id">#</th>
+                    <th class="th-nome">Nome</th>
+                    <th class="th-desig">Designação</th>
+                    <th class="th-situ">Situação</th>
+                    <th class="th-bloco">
+                        <div class="div-buscar">
+                            <i class="bi bi-person-lines-fill"></i>
+                        </div>
+                        {% if adm_funcao in ['Administrador Geral', 'Administrador(a)'] %}
+                            <div class="div-remover">
+                                <i class="bi bi-person-x"></i>
+                            </div>
+                        {% endif %}
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="tb-lista" id="lista-convidados">
+                {% for convidado in lista_convidados %}
+                    <tr data-id="{{ convidado[0] }}">
+                        <td class="td-id">
+                            {{ convidado[0] }}
+                        </td>
+                        <td class="td-nome" title="{{ convidado[1] }}">
+                            {{ convidado[1] }}
+                        </td>
+                        <td class="td-desig">
+                            {{ convidado[2] }}
+                        </td>
+                        <td class="td-situ">
+                            {{ convidado[3] }}
+                        </td>
+                        <td class="td-bloco">
+                            <div class="div-buscar" title="Ver dados" onclick="user_dados(event, '{{ convidado[0] }}')">
+                                <i class="bi bi-search" title="Ver dados"></i>
+                            </div>
+                            {% if adm_funcao in ['Administrador Geral', 'Administrador(a)'] %}
+                                <div class="div-remover" title="Remover" onclick="remover_convidado(event, '{{ convidado[0] }}', '{{ convidado[1] }}' )">
+                                    <i class="bi bi-trash"></i>
+                                </div>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% if adm_funcao in ['Administrador Geral', 'Administrador(a)'] %}
+    <div id="tfoot-add" class="div-add">
+        <div class="div-bloco-addnovo" onclick="load_form_add()" title="Novo Convite">
+            <div class="div-addnovo">
+                <i class="bi bi-plus"></i>
+            </div>
+            <div class="div-addnovo2"> Fazer novo convite de casamento !</div>
+        </div>
+    </div>
+    {% endif %}
+</section>
+
+<section class="section-total">
+    <div class="div-total-convidados">
+        <div class="div-sobreconvites">
+            <table>
+                <tr>
+                    <th>Total de Convites:</th>
+                    <td>{{ total_convites }}</td>
+                </tr>
+                <tr>
+                    <th>Convites Aceitos:</th>
+                    <td>{{ total_aceitos }}</td>
+                </tr>
+                <tr>
+                    <th>Convites Pendentes:</th>
+                    <td>{{ total_pendentes }}</td>
+                </tr>
+                <tr>
+                    <th>Convites Recusados:</th>
+                    <td>{{ total_recusados }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="div-sobremesas">
+            <table>
+                <tr>
+                    <th>Total de mesas:</th>
+                    <td>{{ total_mesas }}</td>
+                </tr>
+                {% for mesa in user_mesas %}
+                    <tr>
+                        <th>{{ mesa[0] }}</th>
+                        <td>{{ mesa[1] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,632 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API do Sistema de Administração e Cadastro",
+        "version": "1.0.0",
+        "description": "Documentação da API para gestão de administradores, funcionários e convidados."
+    },
+    "servers": [
+      {
+        "url": "http://localhost:5000"
+      }
+    ],
+    "paths": {
+        "/autoridade": {
+        "post": {
+            "summary": "Define o tipo de acesso",
+            "description": "Define se o login é para convidado ou organizador e retorna a URL de login correspondente.",
+            "tags": ["1-Login"],
+            "requestBody": {
+            "required": true,
+            "content": {
+                "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                    "tipo": {
+                        "type": "string",
+                        "description": "Tipo de acesso: 'user' ou 'adm'"
+                    }
+                    },
+                    "required": ["tipo"]
+                }
+                }
+            }
+            },
+            "responses": {
+            "200": {
+                "description": "URL de login retornada com sucesso.",
+                "content": {
+                "application/json": {
+                    "schema": {
+                    "type": "object",
+                    "properties": {
+                        "url": {
+                        "type": "string",
+                        "description": "URL de login correspondente ao tipo de acesso."
+                        }
+                    }
+                    }
+                }
+                }
+            },
+            "400": {
+                "description": "Tipo de acesso não encontrado."
+            }
+            }
+        }
+        },
+        "/login": {
+        "post": {
+            "summary": "Realiza login de usuário",
+            "description": "Realiza o login de um usuário com base nas informações fornecidas e tipo de acesso.",
+            "tags": ["1-Login"],
+            "requestBody": {
+            "required": true,
+            "content": {
+                "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                    "email": {
+                        "type": "string",
+                        "description": "Email do usuário"
+                    },
+                    "senha": {
+                        "type": "string",
+                        "description": "Senha do usuário"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "ID do usuário"
+                    },
+                    "tipo": {
+                        "type": "string",
+                        "description": "Tipo de acesso: 'user' ou 'adm'"
+                    }
+                    },
+                    "required": ["email", "senha", "tipo"]
+                }
+                }
+            }
+            },
+            "responses": {
+            "200": {
+                "description": "Login realizado com sucesso.",
+                "content": {
+                "application/json": {
+                    "schema": {
+                    "type": "object",
+                    "properties": {
+                        "acessar": {
+                        "type": "string",
+                        "description": "URL para a página do usuário ou administrador."
+                        }
+                    }
+                    }
+                }
+                }
+            },
+            "401": {
+                "description": "Falha na autenticação."
+            },
+            "404": {
+                "description": "Email não encontrado."
+            }
+            }
+        }
+        },
+
+        "/cadastro_valida_id": {
+        "post": {
+            "summary": "Valida o cadastro com base no ID",
+            "description": "Valida o cadastro de usuário ou administrador com base no ID fornecido.",
+            "tags": ["2-Cadastro"],
+            "requestBody": {
+            "required": true,
+            "content": {
+                "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                    "cadastro_id": {
+                        "type": "string",
+                        "description": "ID para validação de cadastro"
+                    },
+                    "cadastro_tipo": {
+                        "type": "string",
+                        "description": "Tipo de cadastro: 'cadastro_user' ou 'cadastro_adm'"
+                    }
+                    },
+                    "required": ["cadastro_id", "cadastro_tipo"]
+                }
+                }
+            }
+            },
+            "responses": {
+            "200": {
+                "description": "Cadastro validado com sucesso.",
+                "content": {
+                "application/json": {
+                    "schema": {
+                    "type": "object",
+                    "properties": {
+                        "status": {
+                        "type": "string",
+                        "description": "Status da validação"
+                        },
+                        "cadastro_nome": {
+                        "type": "string",
+                        "description": "Nome do usuário ou administrador"
+                        },
+                        "cadastro_desig": {
+                        "type": "string",
+                        "description": "Designação do usuário"
+                        },
+                        "cadastro_mesa": {
+                        "type": "string",
+                        "description": "Mesa do usuário"
+                        },
+                        "cadastro_funcao": {
+                        "type": "string",
+                        "description": "Função do administrador"
+                        },
+                        "cadastro_email": {
+                        "type": "string",
+                        "description": "Email do administrador"
+                        }
+                    }
+                    }
+                }
+                }
+            },
+            "400": {
+                "description": "Erro na validação do cadastro."
+            }
+            }
+        }
+        },
+        "/novo_cadastro": {
+        "put": {
+            "summary": "Processa novo cadastro",
+            "description": "Processa o novo cadastro de usuário ou administrador com base no ID fornecido.",
+            "tags": ["2-Cadastro"],
+            "requestBody": {
+            "required": true,
+            "content": {
+                "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                    "cadastro_id": {
+                        "type": "string",
+                        "description": "ID para o cadastro"
+                    },
+                    "cadastro_tipo": {
+                        "type": "string",
+                        "description": "Tipo de cadastro: 'cadastro_user' ou 'cadastro_adm'"
+                    },
+                    "cadastro_idade": {
+                        "type": "string",
+                        "description": "Idade do usuário"
+                    },
+                    "cadastro_contato": {
+                        "type": "string",
+                        "description": "Contato do usuário"
+                    },
+                    "cadastro_email": {
+                        "type": "string",
+                        "description": "Email do usuário"
+                    },
+                    "cadastro_senha": {
+                        "type": "string",
+                        "description": "Senha do usuário ou administrador"
+                    }
+                    },
+                    "required": ["cadastro_id", "cadastro_tipo", "cadastro_senha"]
+                }
+                }
+            }
+            },
+            "responses": {
+            "200": {
+                "description": "Cadastro processado com sucesso.",
+                "content": {
+                "application/json": {
+                    "schema": {
+                    "type": "object",
+                    "properties": {
+                        "success": {
+                        "type": "boolean",
+                        "description": "Indica se o cadastro foi bem-sucedido."
+                        },
+                        "autoridade": {
+                        "type": "string",
+                        "description": "Tipo de cadastro, se 'user' ou 'adm'"
+                        }
+                    }
+                    }
+                }
+                }
+            },
+            "400": {
+                "description": "Erro no processamento do cadastro."
+            }
+            }
+        }
+        },
+
+        "/load_section_user/{opt_section}": {
+        "get": {
+            "summary": "Carrega seção ao clicar nos itens da barra de menu",
+            "description": "Carrega uma seção específica da página do usuário com base na opção fornecida.",
+            "tags": ["3-USER"],
+            "parameters": [
+            {
+                "name": "opt_section",
+                "in": "path",
+                "required": true,
+                "schema": {
+                "type": "string",
+                "description": "Seção a ser carregada."
+                }
+            }
+            ],
+            "responses": {
+            "200": {
+                "description": "Seção carregada com sucesso.",
+                "content": {
+                "text/html": {
+                    "schema": {
+                    "type": "string"
+                    }
+                }
+                }
+            },
+            "400": {
+                "description": "Seção solicitada não encontrada."
+            }
+            }
+        }
+        },
+        "/user_situacao": {
+        "post": {
+            "summary": "Confirmação de Presença",
+            "description": "Confirma ou recusa a presença de um convidado, atualizando a situação no banco de dados.",
+            "tags": ["3-USER"],
+            "consumes": ["application/json"],
+            "produces": ["application/json"],
+            "parameters": [
+            {
+                "in": "body",
+                "name": "body",
+                "description": "Dados do formulário de confirmação",
+                "required": true,
+                "schema": {
+                "type": "object",
+                "properties": {
+                    "user_situacao": {
+                    "type": "string",
+                    "description": "Situação do usuário ('Aceito' ou 'Recusado')"
+                    }
+                }
+                }
+            }
+            ],
+            "responses": {
+            "200": {
+                "description": "Confirmação de presença registrada com sucesso.",
+                "schema": {
+                "type": "object",
+                "properties": {
+                    "success": {
+                    "type": "boolean",
+                    "description": "Se a operação foi bem-sucedida ou não."
+                    },
+                    "section": {
+                    "type": "string",
+                    "description": "Nome da seção a ser recarregada, se bem-sucedido."
+                    },
+                    "mensagem": {
+                    "type": "string",
+                    "description": "Mensagem de erro em caso de falha."
+                    }
+                }
+                }
+            },
+            "400": {
+                "description": "Erro na solicitação, dados faltantes ou inválidos."
+            }
+            }
+        }
+        },
+
+        "/load_section_adm/{opt_section}": {
+        "get": {
+            "summary": "Carrega seção ao clicar nos itens da barra de menu",
+            "tags": ["4-ADM"],
+            "parameters": [
+            {
+                "name": "opt_section",
+                "in": "path",
+                "required": true,
+                "schema": {
+                "type": "string"
+                }
+            }
+            ],
+            "responses": {
+            "200": {
+                "description": "Seção carregada com sucesso",
+                "content": {
+                "text/html": {
+                    "schema": {
+                    "type": "string"
+                    }
+                }
+                }
+            },
+            "302": {
+                "description": "Redireciona para a página de login"
+            },
+            "404": {
+                "description": "Seção não encontrada"
+            }
+            }
+        }
+        },
+        "/adm_user_dados": {
+        "post": {
+            "summary": "Busca e retorna os dados completos de um convidado",
+            "tags": ["4-ADM"],
+            "requestBody": {
+            "required": true,
+            "content": {
+                "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                    "user_id": {
+                        "type": "integer"
+                    }
+                    },
+                    "required": ["user_id"]
+                }
+                }
+            }
+            },
+            "responses": {
+            "200": {
+                "description": "Dados do convidado retornados com sucesso",
+                "content": {
+                "text/html": {
+                    "schema": {
+                    "type": "string"
+                    }
+                }
+                }
+            },
+            "404": {
+                "description": "Dados não encontrados"
+            },
+            "400": {
+                "description": "Falha ao carregar dados"
+            }
+            }
+        }
+        },
+        "/novo_convite": {
+        "post": {
+            "summary": "Adiciona um novo convite na tabela 'convidados'",
+            "tags": ["4-ADM"],
+            "requestBody": {
+            "required": true,
+            "content": {
+                "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                    "nome": {
+                        "type": "string"
+                    },
+                    "designacao": {
+                        "type": "string"
+                    },
+                    "mesa": {
+                        "type": "string"
+                    }
+                    },
+                    "required": ["nome", "designacao", "mesa"]
+                }
+                }
+            }
+            },
+            "responses": {
+            "200": {
+                "description": "Convite adicionado com sucesso",
+                "content": {
+                "application/json": {
+                    "schema": {
+                    "type": "object",
+                    "properties": {
+                        "success": {
+                        "type": "boolean"
+                        },
+                        "section": {
+                        "type": "string"
+                        }
+                    }
+                    }
+                }
+                }
+            },
+            "400": {
+                "description": "Campos obrigatórios ausentes"
+            },
+            "500": {
+                "description": "Erro ao adicionar o convite"
+            }
+            }
+        }
+        },
+        "/adm_remover_convidado": {
+        "delete": {
+            "summary": "Remove um convidado da tabela 'convidados'",
+            "tags": ["4-ADM"],
+            "requestBody": {
+            "required": true,
+            "content": {
+                "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                    "user_id": {
+                        "type": "integer"
+                    }
+                    },
+                    "required": ["user_id"]
+                }
+                }
+            }
+            },
+            "responses": {
+            "200": {
+                "description": "Convidado removido com sucesso",
+                "content": {
+                "application/json": {
+                    "schema": {
+                    "type": "object",
+                    "properties": {
+                        "success": {
+                        "type": "boolean"
+                        }
+                    }
+                    }
+                }
+                }
+            },
+            "400": {
+                "description": "Número de convite inválido"
+            },
+            "404": {
+                "description": "Item não encontrado"
+            }
+            }
+        }
+        },
+        "/novo_funcionario": {
+        "post": {
+            "summary": "Adiciona um novo funcionário na tabela 'organizadores'",
+            "tags": ["4-ADM"],
+            "requestBody": {
+            "required": true,
+            "content": {
+                "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                    "nome": {
+                        "type": "string"
+                    },
+                    "funcao": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    }
+                    },
+                    "required": ["nome", "funcao", "email"]
+                }
+                }
+            }
+            },
+            "responses": {
+            "200": {
+                "description": "Funcionário adicionado com sucesso",
+                "content": {
+                "application/json": {
+                    "schema": {
+                    "type": "object",
+                    "properties": {
+                        "success": {
+                        "type": "boolean"
+                        },
+                        "section": {
+                        "type": "string"
+                        }
+                    }
+                    }
+                }
+                }
+            },
+            "400": {
+                "description": "Email já cadastrado ou informações ausentes"
+            },
+            "500": {
+                "description": "Erro ao adicionar o funcionário"
+            }
+            }
+        }
+        },
+        "/adm_remover_funcionario": {
+        "delete": {
+            "summary": "Remove um funcionário da tabela 'organizadores'",
+            "tags": ["4-ADM"],
+            "requestBody": {
+            "required": true,
+            "content": {
+                "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                    "adm_id": {
+                        "type": "integer"
+                    }
+                    },
+                    "required": ["adm_id"]
+                }
+                }
+            }
+            },
+            "responses": {
+            "200": {
+                "description": "Funcionário removido com sucesso",
+                "content": {
+                "application/json": {
+                    "schema": {
+                    "type": "object",
+                    "properties": {
+                        "success": {
+                        "type": "boolean"
+                        }
+                    }
+                    }
+                }
+                }
+            },
+            "400": {
+                "description": "Número de convite inválido"
+            },
+            "404": {
+                "description": "Item não encontrado"
+            }
+            }
+        }
+        }
+    },
+    "tags": [
+        {
+            "name": "1-Login"
+        },
+        {
+            "name": "2-Cadastro"
+        },
+        {
+            "name": "3-USER"
+        },
+        {
+            "name": "4-ADM"
+        }
+    ]
+}
+

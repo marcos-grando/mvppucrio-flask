@@ -1,0 +1,72 @@
+.tr-add {
+    width: 99.9%;
+
+    font-size: clamp(12px, 2.5vw, 14px);
+    font-weight: 400;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.tr-add form {
+    background-image: linear-gradient(180deg, var(--cor6) 0%, var(--cor66) 5%);
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+
+    font-size: clamp(12px, 2.5vw, 16px);
+    font-weight: 400;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tr-add form .div-formnovo {
+    padding: 7px 4px;
+}
+
+.tr-add form .form-add {
+    text-align: center;
+    height: 100%;
+    width: 8%;
+}
+.tr-add form .form-nome {
+    width: 31%;
+}
+.tr-add form .form-designacao {
+    width: 25%;
+}
+.tr-add form .form-mesa {
+    width: 20%;
+}
+.tr-add form .form-convite {
+    height: 100%;
+    width: 16%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.tr-add form .div-formnovo input,
+.tr-add form .div-formnovo label,
+.tr-add form .div-formnovo select,
+.tr-add form .div-formnovo datalist {
+    width: 100%;
+    margin-top: 4px;
+}
+.tr-add form .div-formnovo .submit-convite {
+    height: 50%;
+    width: 80%;
+    padding: 6px 0;
+
+    cursor: pointer;
+}
+.bi {
+    color: var(--cor5);
+}
+

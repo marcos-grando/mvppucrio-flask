@@ -1,0 +1,33 @@
+
+{% block arquivos_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/login/login_form_adm.css') }}?v=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/login/login_form.css') }}?v=1.0">
+{% endblock %}
+
+{% block conteudo_login %}
+
+
+    <form id="form-adm" method="post" autocomplete="off">
+        <h2>Login</h2>
+        <div class="profile-div" id="email-div">
+            <label for="id-email"><i class="bi bi-person"></i></label>
+            <input class="login-dados" id="id-email" type="email" name="your-email" placeholder="Seu email..." required>
+            <i class="bi-validar"></i>
+            <br>
+        </div>
+
+        <div class="profile-div" id="senha-div">
+            <label for="id-password"><i class="bi bi-lock"></i></label>
+            <input class="login-dados" id="id-password" type="password" name="your-password" placeholder="Sua senha..." minlength="1" maxlength="16" required>
+            <i class="bi-validar"></i>
+            <br>
+        </div>
+        
+        <div class="entrar-div">
+            <input class="login-entrar" id="id-entrar"  type="submit" value="Entrar">
+        </div>
+        <p>Não tem conta? <a class="cadastre-se" onclick="adm_cadastro()">Cadastre-se!</a></p>
+    </form>
+
+
+{% endblock %}

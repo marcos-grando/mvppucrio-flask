@@ -1,0 +1,50 @@
+/* Paleta de Cores */
+:root {
+    /* Backgrounds e textos*/
+    --cor0: #ffffff;
+    --cor1: #0B0B1D;
+    --cor2: #f7f7f7;
+
+    /* Backgrounds secundários */
+    --cor3: #090825;
+    --cor4: #f0f0f0;
+    --cor5: #1A0034;
+
+    /* Detalhes #2b054e*/
+    --cor6: #BF71F0;
+    --cor61: #bf71f039;
+    --cor62: #443752;
+    --cor63: #420d74;
+    --cor64: #280546;
+    --cor65: #eee5f87e;
+    --cor66: #fcf2ff;
+    --cor67 :#f2e4f7;
+    --cor7: #E5FF0A;
+    --cor71: #e6ff0a89;
+    --cor72: #e6ff0ad2;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Elaine Sans', 'Work Sans', sans-serif;
+}
+html,body {
+    width: 100%; height: 100%;
+    box-sizing: border-box;
+}
+body {
+    background-image: linear-gradient(135deg, var(--cor62) 0%, var(--cor5) 100%);
+    width: 100%; height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+
+/* @media screen and (min-width: 768px){
+
+} */

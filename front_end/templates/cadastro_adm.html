@@ -1,0 +1,46 @@
+    
+    {% block arquivos_css %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='estilos/cadastro/cadastro.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='estilos/cadastro/cadastro_adm.css') }}">
+    {% endblock %}
+
+        <div class="div-bi-exit" onclick="autoridade('adm')">
+            <i class="bi-exit bi-box-arrow-left"></i>
+        </div>
+        <div class="div-cadastro">
+            <form class="form-cadastro" action="/novo_cadastro" method="PUT" autocomplete="off" onsubmit="novo_cadastro(event, 'cadastro_adm')">
+                <div class="form-grid">
+                    <div class="profile-div user-id">
+                        <label for="cadastro-id">Seu ID:</label>
+                        <input id="cadastro-id" class="cadastro-dados" type="number" name="id" required>
+                    </div>
+                    <div class="profile-div user-bi">
+                        <i class="bi bi-search" onclick="cadastro_valida_id('cadastro_adm')"></i>
+                    </div>
+                    <div class="profile-div user-funcao">
+                        <label for="cadastro-funcao">Função:</label>
+                        <input id="cadastro-funcao" class="cadastro-dados" type="text" name="funcao" value="" readonly>
+                    </div>
+                    <div class="profile-div user-nome">
+                        <label for="cadastro-nome">Nome completo:</label>
+                        <input id="cadastro-nome" class="cadastro-dados" type="text" name="nome" value="" readonly>
+                    </div>
+                    <div class="profile-div user-email">
+                        <label for="cadastro-email">Email:</label>
+                        <input id="cadastro-email" class="cadastro-dados" type="email" name="email" readonly required>
+                    </div>
+                    <div class="profile-div user-senha">
+                        <label for="cadastro-senha">Senha:</label>
+                        <input id="cadastro-senha" class="cadastro-dados" type="password" name="senha" minlength="2" required readonly>
+                    </div>
+                    <div class="profile-div user-submit">
+                        <input id="cadastro-submit" class="cad-submit" type="submit" value="Cadastrar-se">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    {% block extra_js %}
+        <script src="{{ url_for('static', filename='scriptsjs/logout.js') }}"></script>
+        <script src="{{ url_for('static', filename='scriptsjs/cadastro.js') }}"></script>
+    {% endblock %}

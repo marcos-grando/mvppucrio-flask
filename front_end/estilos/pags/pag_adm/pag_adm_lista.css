@@ -1,0 +1,48 @@
+.bi-plus-circle-fill {
+    font-size: clamp(14px, 2.6vw, 18px);
+    cursor: pointer;
+}
+
+main .section-main .section-total .div-total-convidados {
+    border-bottom: 1px solid var(--cor61);
+    width: 100%;
+    height: 80%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+main .section-main .section-total .div-total-convidados .div-sobremesas,
+main .section-main .section-total .div-total-convidados .div-sobreconvites {
+    height: 100%;
+    width: auto;
+
+    display: flex;
+    justify-content: center;
+
+    overflow: auto;
+}
+main .section-main .section-total .div-total-convidados .div-sobremesas table,
+main .section-main .section-total .div-total-convidados .div-sobreconvites table {
+    border: 1px solid var(--cor61);
+    height: 20%;
+    width: 100%;
+
+    table-layout: auto;
+    border-collapse: collapse;
+}
+main .section-main .section-total .div-total-convidados .div-sobremesas table th,
+main .section-main .section-total .div-total-convidados .div-sobreconvites table th {
+    background-color: var(--cor65);
+    border: 1px solid var(--cor61);
+    font-size: clamp(14px, 2.5vw, 15px);
+    padding: 4px 7px;
+    font-weight: 400;
+}
+main .section-main .section-total .div-total-convidados .div-sobremesas table td,
+main .section-main .section-total .div-total-convidados .div-sobreconvites table td {
+    border: 1px solid var(--cor61);
+    font-size: clamp(12px, 2.5vw, 13px);
+    padding: 2px 6px;
+}

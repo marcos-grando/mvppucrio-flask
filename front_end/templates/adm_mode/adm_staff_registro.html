@@ -1,0 +1,39 @@
+{% block arquivos_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/pags/pag_adm/pag_adm_staff_registro.css') }}">
+{% endblock %}
+
+    <div class="tr-add">
+        <form action="/novo_funcionario" method="POST" autocomplete="off" onsubmit="form_novo_funcionario(event)">
+            <div class="div-formnovo form-add">
+                <i class="bi bi-database-fill-add"></i>
+            </div>
+            <div class="div-formnovo form-nome">
+                <label for="id-nome">Nome completo</label>
+                <input class="input-nome" id="id-nome" type="text" name="nome" required>
+            </div>
+            <div class="div-formnovo form-funcao">
+                <label for="id-funcao">Função</label>
+                <input class="input-funcao" id="id-funcao" type="text" name="funcao" list="funcao">
+                <datalist id="funcao" required>
+                    <option value="Administrador(a)">Administrador</option>
+                    <option value="Confeiteiro(a)">Confeiteiro(a)</option>
+                    <option value="Fotógrafo(a)">Fotógrafo(a)</option>
+                    <option value="Orquestra">Orquestra</option>
+                    <option value="Atendente">Atendente</option>
+                </datalist>
+            </div>
+            <div class="div-formnovo form-email">
+                <label for="id-email">Email</label>
+                <input type="email" name="email" id="id-email" required>
+            </div>
+            <div class="div-formnovo form-convite">
+                <button id="id-convite" class="submit-convite" type="submit">
+                    <i class="bi bi-envelope"></i>
+                </button>
+            </div>
+        </form>
+    </div> 
+
+{% block extra_js %}
+    <script src="{{ url_for('static', filename='scriptsjs/conteudos_adm.js') }}"></script>
+{% endblock %}

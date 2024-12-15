@@ -1,0 +1,89 @@
+
+{% block arquivos_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/pags/pag_adm/pag_adm_staff.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/pags/pag_adm/pag_adm_staff_tabela.css') }}">
+{% endblock %}
+
+<section class="section-textadm">
+    <div class="div-textadm div-textadm12">
+        <h3>Quadro de Funcionários</h3>
+        <p>Sua função: <em>{{ adm_funcao }}</em></p>
+        <p>Veja abaixo toda a Staff do evento até o momento. </p>
+    </div>
+</section>
+
+<section class="section-lista">
+    <div class="div-lista">
+        <table>
+            <thead class="th-dados" id="dados-convidados">
+                <tr>
+                    <th class="th-id">#</th>
+                    <th class="th-nome">Nome</th>
+                    <th class="th-funcao">Função</th>
+                    <th class="th-bloco">
+                        <div class="div-email"><i class="bi bi-envelope"></i></div>
+                        {% if adm_funcao in ['Administrador Geral'] %}
+                            <div class="div-remover">
+                                <i class="bi bi-person-x"></i>
+                            </div>
+                        {% endif %}
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="tb-lista" id="lista-convidados">
+                {% for profissional in lista_staff %}
+                    <tr data-id="{{ profissional[0] }}">
+                        <td class="td-id">
+                            {{ profissional[0] }}
+                        </td>
+                        <td class="td-nome" title="{{ profissional[1] }}">
+                            {{ profissional[1] }}
+                        </td>
+                        <td class="td-funcao" title="{{ profissional[2] }}">
+                            {{ profissional[2] }}
+                        </td>
+                        <td class="td-bloco">
+                            <div class="div-email" data-copiar="{{ profissional[3] }}" onclick="email_copiar(this)">
+                                <i class="bi bi-files" title="{{ profissional[3] }}"></i>
+                            </div>
+                            {% if adm_funcao in ['Administrador Geral'] %}
+                                <div class="div-remover" title="Remover" onclick="remover_funcionario(event, '{{ profissional[0] }}', '{{ profissional[1] }}' )">
+                                    <i class="bi bi-trash"></i>
+                                </div>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+        </table>        
+    </div>
+    {% if adm_funcao in ['Administrador Geral'] %}
+    <div id="tfoot-add" class="div-add">
+        <div class="div-bloco-addnovo" onclick="load_form_add_func()" title="Novo Funcionário">
+            <div class="div-addnovo">
+                <i class="bi bi-plus"></i>
+            </div>
+            <div class="div-addnovo2"> Adicionar novo funcionário na equipe !</div>
+        </div>
+    </div>
+    {% endif %}
+</tbody>
+</section>
+
+<section class="section-total">
+    <div class="div-total-funcionarios">
+        <div class="div-sobrefuncao">
+            <table>
+                <tr>
+                    <th>Nº de funcionários:</th>
+                    <td>{{ total_staff }}</td>
+                </tr>
+                {% for funcao in lista_funcao %}
+                    <tr>
+                        <th>{{ funcao[0] }}</th>
+                        <td>{{ funcao[1] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</section>

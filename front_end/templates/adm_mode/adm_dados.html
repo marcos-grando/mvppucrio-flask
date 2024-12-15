@@ -1,0 +1,63 @@
+
+{% block arquivos_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/pags/pag_adm/pag_adm_dados.css') }}">
+{% endblock %}
+
+<div class="div-return">
+    <i class="bi bi-arrow-left" onclick="load_section_adm('adm_lista')"></i>
+</div>
+
+<div class="div-userdados">
+    <div class="div-dados">
+        <table>
+            <tr>
+                <th>Nº do convite</th>
+                <td>Convite nº {{ dados_resultado[0] }}</td>
+            </tr>
+            <tr>
+                <th>Nome</th>
+                <td>{{ dados_resultado[1] }}</td>
+            </tr>
+            <tr>
+                <th>Idade</th>
+                <td>{{ dados_resultado[2] }} anos</td>
+            </tr>
+            <tr>
+                <th>Designação</th>
+                <td>{{ dados_resultado[3] }}</td>
+            </tr>
+            <tr>
+                <th>Mesa</th>
+                <td>{{ dados_resultado[4] }}</td>
+            </tr>
+            <tr>
+                <th>Situação</th>
+                <td>{{ dados_resultado[5] }}</td>
+            </tr>
+            <tr>
+                <th>Contato</th>
+                <td>{{ dados_resultado[6] }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ dados_resultado[7] }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="div-dadosmesa">
+    <div class="div-mesa">
+        <table>
+            <tr>
+                <th colspan="2">{{ dados_resultado[4] }}</th>
+            </tr>
+            {% for user_mesa in dados_mesa %}
+                <tr>
+                    <td>{{ user_mesa[0] }}</td>
+                    <td>{{ user_mesa[1] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>

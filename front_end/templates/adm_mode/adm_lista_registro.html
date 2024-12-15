@@ -1,0 +1,44 @@
+{% block arquivos_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/pags/pag_adm/pag_adm_lista_registro.css') }}">
+{% endblock %}
+
+    <div class="tr-add">
+        <form action="/novo_convite" method="POST" autocomplete="off" onsubmit="form_novo_convite(event)">
+            <div class="div-formnovo form-add">
+                <i class="bi bi-database-fill-add"></i>
+            </div>
+            <div class="div-formnovo form-nome">
+                <label for="id-nome">Nome completo</label>
+                <input class="input-nome" id="id-nome" type="text" name="nome" required>
+            </div>
+            <div class="div-formnovo form-designacao">
+                <label for="id-designacao">Designação</label>
+                <select id="id-designacao" name="designacao" required>
+                    <option value="Convidado(a)">Convidado(a)</option>
+                    <option value="Família (noiva)">Família (noiva)</option>
+                    <option value="Família (noivo)">Família (noivo)</option>
+                    <option value="Madrinha">Madrinha</option>
+                    <option value="Padrinho">Padrinho</option>
+                </select>
+            </div>
+            <div class="div-formnovo form-mesa">
+                <label for="id-mesa">Mesa</label>
+                <input class="input-mesa" id="id-mesa" type="text" name="mesa" list="mesas">
+                <datalist id="mesas" required>
+                    <option value="Mesa 1">Mesa 1</option>
+                    <option value="Mesa 2">Mesa 2</option>
+                    <option value="Mesa 3">Mesa 3</option>
+                    <option value="Mesa 4">Mesa 4</option>
+                </datalist>
+            </div>
+            <div class="div-formnovo form-convite">
+                <button id="id-convite" class="submit-convite" type="submit">
+                    <i class="bi bi-envelope"></i>
+                </button>
+            </div>
+        </form>
+    </div> 
+
+{% block extra_js %}
+    <script src="{{ url_for('static', filename='scriptsjs/conteudos_adm.js') }}"></script>
+{% endblock %}

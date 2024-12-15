@@ -1,0 +1,87 @@
+
+
+main {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+main .section-main {
+    background-color: var(--cor4);
+    border-radius: 15px;
+    height: 86%;
+    width: 86%;
+    max-width: 632px;
+    /* padding:0 0 3.5% 0; */
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+main .section-main .section-titulo {
+    background-color: var(--cor61);
+    width: 100%;
+    padding: 10px 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+main .section-main .section-titulo .div-titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main .section-main .section-titulo .div-titulo h1 {
+    font-size: clamp(33px, 5.6vw, 37px);
+    font-style: italic;
+}
+main .section-main .section-titulo .div-titulo h2 {
+    font-size: clamp(19px, 3.4vw, 21px);
+    font-weight: 400;
+}
+
+
+main .section-main .section-text {
+    width: 100%;
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+main .section-main .section-text .div-text {
+    text-align: center;
+    width: 100%;
+    padding: 4px;
+}
+main .section-main .section-text .div-text h3 {
+    font-size: clamp(19px, 3.4vw, 22px);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+main .section-main .section-text .div-text p {
+    font-size: clamp(14px, 2.5vw, 17px);
+    line-height: 1.2;
+}
+main .section-main .section-text .div-text2 {
+    text-align: center;
+    width: 100%;
+    padding: 4px;
+}
+main .section-main .section-text .div-text2 h3 {
+    font-size: clamp(16px, 3.0vw, 20px);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+main .section-main .section-text .div-text2 p {
+    font-size: clamp(11px, 2.0vw, 15px);
+    line-height: 1.2;
+}

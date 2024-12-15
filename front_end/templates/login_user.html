@@ -1,0 +1,39 @@
+
+{% block arquivos_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/login/login_form.css') }}?v=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/login/login_form_user.css') }}?v=1.0">
+{% endblock %}
+
+{% block conteudo_login %}
+
+
+    <form id="form_user" method="post" autocomplete="off">
+        <h2>Login</h2>
+        <div class="profile-div" id="email-div">
+            <label for="id-email"><i class="bi bi-person-fill"></i></label>
+            <input class="login-dados" id="id-email" type="email" name="email" placeholder="Seu email..." required>
+            <i class="bi-validar"></i>
+            <br>
+        </div>
+        
+        <div class="profile-div" id="senha-div">
+            <label for="id-password"><i class="bi bi-lock-fill"></i></label>
+            <input class="login-dados" id="id-password" type="password" name="password" placeholder="Sua senha..." minlength="1" maxlength="20" required>
+            <i class="bi-validar"></i>
+            <br>
+        </div>
+
+        <div class="entrar-div">
+            <div class="numid-div" id="numId-div">
+                <label for="id-numId"><i class="bi bi-hash"></i></label>
+                <input class="login-dados" type="text" name="numId" id="id-numId" placeholder="Nº do convite" required>
+                <i class="bi-validar"></i>
+                <br>
+            </div>
+            <input class="login-entrar" id="id-entrar" type="submit" value="Entrar">
+        </div>
+        <p>Tem um convite? <a class="cadastre-se" onclick="user_cadastro()">Cadastre-se!</a></p>
+    </form>
+
+
+{% endblock %}
