@@ -149,25 +149,17 @@ Após clonar ou baixar o projeto, siga as etapas a seguir:
     "pip install -r requirements.txt"
    ```
 
-3. **Defina a variável de ambiente FLASK_APP**
-   ```
-   - Windows:
-     "$env:FLASK_APP='back_end/app.py'"
-   - Linux/Mac:
-     "export FLASK_APP=back_end/app.py"
-   ```
-
-4. **Execute o servidor Flask**
+3. **Execute o servidor Flask**
    ```
    "flask run"
    ```
 
-5. **Acesse o projeto**
+4. **Acesse o projeto**
    ```
    "http://localhost:5000/"
    ```
 
-6. **Documentação Swagger**
+5. **Documentação Swagger**
    ```
    "http://localhost:5000/openapi/swagger"
    ```
