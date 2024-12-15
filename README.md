@@ -1,6 +1,6 @@
 ### Desenvolvimento Full Stack - PUC-Rio
 
-# MVP Full Stack Básico com Flask: Gerenciamento dos Convidados e Funcionários de Casamento 📋
+## MVP Full Stack Básico com Flask: Gerenciamento dos Convidados e Funcionários de Casamento 📋
 
 O MVP foi desenvolvido utilizando Flask para criar um sistema web de gerenciamento de convidados e funcionários de um casamento. O sistema permite que convidados confirmem sua presença e acessem informações sobre o evento, enquanto administradores têm ferramentas para o gerenciamento.
 
